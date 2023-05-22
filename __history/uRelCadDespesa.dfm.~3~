@@ -1,0 +1,182 @@
+object frmRelCadDespesa: TfrmRelCadDespesa
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro de Despesas'
+  ClientHeight = 806
+  ClientWidth = 795
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object RLReport1: TRLReport
+    Left = 0
+    Top = 0
+    Width = 794
+    Height = 1123
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Style = []
+    Transparent = False
+    object RLBand1: TRLBand
+      Left = 38
+      Top = 38
+      Width = 718
+      Height = 52
+      BandType = btHeader
+      Transparent = False
+      object RLLabel1: TRLLabel
+        Left = 3
+        Top = 4
+        Width = 256
+        Height = 32
+        Caption = 'Listagem de Despesas'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLDraw1: TRLDraw
+        Left = 0
+        Top = 36
+        Width = 718
+        Height = 16
+        Align = faBottom
+        DrawKind = dkLine
+        Pen.Width = 2
+        Transparent = False
+      end
+    end
+    object RLBand2: TRLBand
+      Left = 38
+      Top = 90
+      Width = 718
+      Height = 36
+      BandType = btColumnHeader
+      Color = 11402485
+      ParentColor = False
+      Transparent = False
+      object RLLabel2: TRLLabel
+        Left = 3
+        Top = 6
+        Width = 36
+        Height = 25
+        Caption = '#ID'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel4: TRLLabel
+        Left = 58
+        Top = 6
+        Width = 130
+        Height = 25
+        Caption = 'Detalhamento'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel5: TRLLabel
+        Left = 333
+        Top = 6
+        Width = 121
+        Height = 25
+        Caption = 'Valor Receita'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel6: TRLLabel
+        Left = 470
+        Top = 6
+        Width = 56
+        Height = 25
+        Caption = 'Fonte'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel7: TRLLabel
+        Left = 542
+        Top = 6
+        Width = 169
+        Height = 25
+        Caption = 'Forma Pagamento'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+    end
+    object RLBand3: TRLBand
+      Left = 38
+      Top = 126
+      Width = 718
+      Height = 51
+      object RLDBText1: TRLDBText
+        Left = 11
+        Top = 19
+        Width = 23
+        Height = 21
+        DataField = 'dispesaId'
+        DataSource = dtsCadRelDespesa
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Text = ''
+      end
+    end
+  end
+  object QryCadRelDespesa: TZQuery
+    Connection = dtmConexao.SQLConnection
+    Active = True
+    SQL.Strings = (
+      'select dispesaId,'
+      #9'   tipoGasto,'
+      #9'   detalhamento,'
+      #9'   valorGasto,'
+      #9'   fonte,'
+      #9'   dataDespesa,'
+      #9'   formaPagamento'
+      #9'from Despesas')
+    Params = <>
+    Left = 336
+    Top = 592
+  end
+  object dtsCadRelDespesa: TDataSource
+    DataSet = QryCadRelDespesa
+    Left = 440
+    Top = 608
+  end
+end

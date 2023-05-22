@@ -1,0 +1,22 @@
+unit uFuncoes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uHerancaBase, Vcl.StdCtrls,
+  Vcl.Imaging.pngimage, Vcl.ExtCtrls, Data.DB, Vcl.Mask, Vcl.Grids, Vcl.DBGrids,
+  Vcl.Buttons, System.ImageList, Vcl.ImgList, Vcl.DBCtrls, Vcl.ComCtrls;
+
+type
+TFuncao = Class
+
+End;
+implementation
+
+procedure CriarAba(aForm: TFormClass; aPageControl: TPageControl; aIndexImagem: Integer);
+begin
+
+end;
+
+end.

@@ -1,0 +1,163 @@
+inherited frmCartaoCadastro: TfrmCartaoCadastro
+  Caption = 'Cadastro de Cart'#227'o'
+  ClientHeight = 250
+  ClientWidth = 470
+  ExplicitWidth = 470
+  ExplicitHeight = 250
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    Width = 470
+    inherited imgBtnClose: TImage
+      Left = 447
+    end
+    inherited lblTitulo: TLabel
+      Width = 109
+      Caption = 'Cadastro de Cart'#227'o'
+      ExplicitWidth = 109
+    end
+    inherited pnlHeaderLineTop: TPanel
+      Width = 470
+    end
+    inherited pnlHeaderLineRight: TPanel
+      Left = 468
+    end
+    inherited pnlHeaderLineGray: TPanel
+      Width = 421
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    Height = 216
+  end
+  inherited pnlFormLineRight: TPanel
+    Left = 468
+    Height = 216
+  end
+  inherited pnlFormLineBottom: TPanel
+    Top = 248
+    Width = 470
+  end
+  inherited pnlPrincipal: TPanel
+    Width = 466
+    Height = 216
+    ExplicitLeft = -4
+    ExplicitTop = 35
+    ExplicitWidth = 466
+    ExplicitHeight = 216
+    object Label1: TLabel [0]
+      Left = 40
+      Top = 32
+      Width = 19
+      Height = 13
+      Caption = '#ID'
+      FocusControl = DBEdit1
+    end
+    object Label2: TLabel [1]
+      Left = 40
+      Top = 88
+      Width = 46
+      Height = 13
+      Caption = 'Descri'#231#227'o'
+      FocusControl = DBEdit2
+    end
+    inherited pnlPrincipalBottom: TPanel
+      Top = 174
+      Width = 466
+    end
+    object DBEdit1: TDBEdit
+      Tag = 81
+      Left = 40
+      Top = 51
+      Width = 134
+      Height = 21
+      DataField = 'cartaoId'
+      DataSource = dtsCadastro
+      TabOrder = 1
+    end
+    object DBEdit2: TDBEdit
+      Left = 40
+      Top = 104
+      Width = 394
+      Height = 21
+      DataField = 'descricaoCartao'
+      DataSource = dtsCadastro
+      TabOrder = 2
+    end
+  end
+  inherited imhButtons: TImageList
+    Left = 360
+    Top = 32
+  end
+  inherited QryCadastro: TZQuery
+    Tag = 81
+    Connection = dtmConexao.SQLConnection
+    Active = True
+    SQL.Strings = (
+      'select cartaoId,'
+      #9'   descricaoCartao'
+      'from Cartao'
+      'where cartaoId =:cartaoId')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'cartaoId'
+        ParamType = ptUnknown
+      end>
+    Left = 298
+    Top = 72
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cartaoId'
+        ParamType = ptUnknown
+      end>
+    object QryCadastrocartaoId: TIntegerField
+      DisplayLabel = '#ID'
+      FieldName = 'cartaoId'
+      ReadOnly = True
+    end
+    object QryCadastrodescricaoCartao: TWideStringField
+      DisplayLabel = 'Descri'#231#227'o'
+      FieldName = 'descricaoCartao'
+      Required = True
+      Size = 30
+    end
+  end
+  inherited updCadastro: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM Cartao'
+      'WHERE'
+      
+        '  ((Cartao.cartaoId IS NULL AND :OLD_cartaoId IS NULL) OR (Carta' +
+        'o.cartaoId = :OLD_cartaoId))')
+    InsertSQL.Strings = (
+      'INSERT INTO Cartao'
+      '  (descricaoCartao)'
+      'VALUES'
+      '  (:descricaoCartao)')
+    ModifySQL.Strings = (
+      'UPDATE Cartao SET'
+      '  descricaoCartao = :descricaoCartao'
+      'WHERE'
+      
+        '  ((Cartao.cartaoId IS NULL AND :OLD_cartaoId IS NULL) OR (Carta' +
+        'o.cartaoId = :OLD_cartaoId))')
+    Left = 370
+    Top = 80
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'descricaoCartao'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_cartaoId'
+        ParamType = ptUnknown
+      end>
+  end
+  inherited dtsCadastro: TDataSource
+    Left = 298
+    Top = 32
+  end
+end

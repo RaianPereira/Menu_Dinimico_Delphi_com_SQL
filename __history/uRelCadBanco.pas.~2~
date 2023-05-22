@@ -1,0 +1,30 @@
+unit uRelCadBanco;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset, RLReport;
+
+type
+  TfrmRelCadBanco = class(TForm)
+    RLReport1: TRLReport;
+    QryCadBanco: TZQuery;
+    dtsCadBanco: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelCadBanco: TfrmRelCadBanco;
+
+implementation
+
+{$R *.dfm}
+
+uses uDtmConexao;
+
+end.

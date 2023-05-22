@@ -1,0 +1,51 @@
+unit uRelCadCartao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RLReport, Data.DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset;
+
+type
+  TfrmRelCadCartao = class(TForm)
+    QryCartao: TZQuery;
+    dtsCartao: TDataSource;
+    QryCartaocartaoId: TIntegerField;
+    QryCartaodescricaoCartao: TWideStringField;
+    RLReport1: TRLReport;
+    RLBand1: TRLBand;
+    RLLabel1: TRLLabel;
+    RLDraw2: TRLDraw;
+    RLBand2: TRLBand;
+    RLLabel2: TRLLabel;
+    RLLabel3: TRLLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelCadCartao: TfrmRelCadCartao;
+
+implementation
+
+{$R *.dfm}
+
+uses uDtmConexao;
+
+procedure TfrmRelCadCartao.FormCreate(Sender: TObject);
+begin
+  QryCartao.Open;
+end;
+
+procedure TfrmRelCadCartao.FormDestroy(Sender: TObject);
+begin
+  QryCartao.Close;
+end;
+
+
+end.

@@ -1,0 +1,133 @@
+inherited frmHerancaCadastro: TfrmHerancaCadastro
+  Caption = ''
+  ClientHeight = 428
+  ClientWidth = 824
+  KeyPreview = True
+  OnKeyDown = FormKeyDown
+  ExplicitWidth = 824
+  ExplicitHeight = 428
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    Width = 824
+    ExplicitWidth = 824
+    inherited imgBtnClose: TImage
+      Left = 801
+      ExplicitLeft = 801
+    end
+    inherited pnlHeaderLineTop: TPanel
+      Width = 824
+      ExplicitWidth = 824
+    end
+    inherited pnlHeaderLineLeft: TPanel
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineRight: TPanel
+      Left = 822
+      ExplicitLeft = 822
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineGray: TPanel
+      Width = 775
+      Anchors = [akLeft, akTop, akRight]
+      ExplicitWidth = 775
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    Height = 394
+    ExplicitLeft = 0
+    ExplicitTop = 32
+    ExplicitHeight = 394
+  end
+  inherited pnlFormLineRight: TPanel
+    Left = 822
+    Height = 394
+    ExplicitLeft = 822
+    ExplicitTop = 32
+    ExplicitHeight = 394
+  end
+  inherited pnlFormLineBottom: TPanel
+    Top = 426
+    Width = 824
+    ExplicitTop = 426
+    ExplicitWidth = 824
+  end
+  object pnlPrincipal: TPanel [4]
+    Left = 2
+    Top = 32
+    Width = 820
+    Height = 394
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 4
+    object pnlPrincipalBottom: TPanel
+      Left = 0
+      Top = 352
+      Width = 820
+      Height = 42
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 0
+      object btnCancelar: TBitBtn
+        Left = 6
+        Top = 1
+        Width = 100
+        Height = 36
+        ImageIndex = 9
+        Images = imhButtons
+        TabOrder = 0
+        OnClick = btnCancelarClick
+        OnMouseEnter = btnCancelarMouseEnter
+        OnMouseLeave = btnCancelarMouseLeave
+      end
+      object btnApagar: TBitBtn
+        Left = 242
+        Top = 1
+        Width = 100
+        Height = 36
+        ImageIndex = 10
+        Images = imhButtons
+        TabOrder = 1
+        OnClick = btnApagarClick
+        OnMouseEnter = btnApagarMouseEnter
+        OnMouseLeave = btnApagarMouseLeave
+      end
+      object btnGravar: TBitBtn
+        Left = 124
+        Top = 1
+        Width = 100
+        Height = 36
+        ImageIndex = 7
+        Images = imhButtons
+        TabOrder = 2
+        OnClick = btnGravarClick
+        OnMouseEnter = btnGravarMouseEnter
+        OnMouseLeave = btnGravarMouseLeave
+      end
+    end
+  end
+  inherited imhButtons: TImageList
+    Left = 672
+    Top = 48
+  end
+  object QryCadastro: TZQuery
+    UpdateObject = updCadastro
+    AfterPost = QryCadastroAfterPost
+    AfterDelete = QryCadastroAfterDelete
+    Params = <>
+    Left = 394
+    Top = 48
+  end
+  object updCadastro: TZUpdateSQL
+    UseSequenceFieldForRefreshSQL = False
+    Left = 458
+    Top = 56
+  end
+  object dtsCadastro: TDataSource
+    DataSet = QryCadastro
+    Left = 530
+    Top = 56
+  end
+end

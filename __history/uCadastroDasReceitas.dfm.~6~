@@ -1,0 +1,309 @@
+inherited frmCadastroDasReceitas: TfrmCadastroDasReceitas
+  Caption = 'Cadastro das Receitas'
+  ClientHeight = 709
+  ClientWidth = 598
+  ExplicitWidth = 598
+  ExplicitHeight = 709
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    Width = 598
+    inherited imgBtnClose: TImage
+      Left = 575
+    end
+    inherited lblTitulo: TLabel
+      Width = 126
+      Caption = 'Cadastro das Receitas'
+      ExplicitWidth = 126
+    end
+    inherited pnlHeaderLineTop: TPanel
+      Width = 598
+    end
+    inherited pnlHeaderLineLeft: TPanel
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineRight: TPanel
+      Left = 596
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineGray: TPanel
+      Width = 549
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    Height = 675
+    ExplicitLeft = 0
+    ExplicitTop = 32
+  end
+  inherited pnlFormLineRight: TPanel
+    Left = 596
+    Height = 675
+    ExplicitTop = 32
+  end
+  inherited pnlFormLineBottom: TPanel
+    Top = 707
+    Width = 598
+  end
+  inherited pnlPrincipal: TPanel
+    Width = 594
+    Height = 675
+    object Label1: TLabel [0]
+      Left = 20
+      Top = 40
+      Width = 19
+      Height = 13
+      Caption = '#ID'
+      FocusControl = DBEdit1
+    end
+    object Label2: TLabel [1]
+      Left = 20
+      Top = 117
+      Width = 74
+      Height = 13
+      Caption = 'Tipo da Receita'
+      FocusControl = DBEdit2
+    end
+    object Label3: TLabel [2]
+      Left = 20
+      Top = 194
+      Width = 67
+      Height = 13
+      Caption = 'Detalhamento'
+      FocusControl = DBEdit3
+    end
+    object Label4: TLabel [3]
+      Left = 20
+      Top = 272
+      Width = 78
+      Height = 13
+      Caption = 'Valor da Receita'
+      FocusControl = DBEdit4
+    end
+    object Label5: TLabel [4]
+      Left = 20
+      Top = 352
+      Width = 28
+      Height = 13
+      Caption = 'Fonte'
+      FocusControl = DBEdit5
+    end
+    object Label6: TLabel [5]
+      Left = 20
+      Top = 536
+      Width = 77
+      Height = 13
+      Caption = 'Data da Receita'
+      FocusControl = DBEdit6
+    end
+    object Label7: TLabel [6]
+      Left = 20
+      Top = 443
+      Width = 102
+      Height = 13
+      Caption = 'Forma de Pagamento'
+      FocusControl = DBEdit7
+    end
+    inherited pnlPrincipalBottom: TPanel
+      Top = 633
+      Width = 594
+    end
+    object DBEdit1: TDBEdit
+      Left = 20
+      Top = 56
+      Width = 238
+      Height = 21
+      DataField = 'receitaId'
+      DataSource = dtsCadastro
+      Enabled = False
+      TabOrder = 1
+    end
+    object DBEdit2: TDBEdit
+      Left = 20
+      Top = 133
+      Width = 541
+      Height = 21
+      DataField = 'tipoReceita'
+      DataSource = dtsCadastro
+      TabOrder = 2
+    end
+    object DBEdit3: TDBEdit
+      Left = 20
+      Top = 210
+      Width = 541
+      Height = 21
+      DataField = 'detalhamento'
+      DataSource = dtsCadastro
+      TabOrder = 3
+    end
+    object DBEdit4: TDBEdit
+      Left = 20
+      Top = 288
+      Width = 238
+      Height = 21
+      DataField = 'valorReceita'
+      DataSource = dtsCadastro
+      TabOrder = 4
+    end
+    object DBEdit5: TDBEdit
+      Left = 20
+      Top = 368
+      Width = 541
+      Height = 21
+      DataField = 'fonte'
+      DataSource = dtsCadastro
+      TabOrder = 5
+    end
+    object DBEdit6: TDBEdit
+      Left = 20
+      Top = 552
+      Width = 238
+      Height = 21
+      DataField = 'dataReceita'
+      DataSource = dtsCadastro
+      TabOrder = 6
+    end
+    object DBEdit7: TDBEdit
+      Left = 20
+      Top = 459
+      Width = 541
+      Height = 21
+      DataField = 'formaPagamento'
+      DataSource = dtsCadastro
+      TabOrder = 7
+    end
+  end
+  inherited imhButtons: TImageList
+    Left = 472
+    Top = 56
+  end
+  inherited QryCadastro: TZQuery
+    Connection = dtmConexao.SQLConnection
+    SQL.Strings = (
+      'select receitaId,'
+      #9#9'   tipoReceita,'
+      #9#9'   detalhamento,'
+      #9#9'   valorReceita,'
+      #9#9'   fonte,'
+      #9#9'   dataReceita,'
+      #9#9'   formaPagamento'
+      'from Receita'
+      'where receitaId=:receitaId')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'receitaId'
+        ParamType = ptUnknown
+      end>
+    Left = 442
+    Top = 112
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'receitaId'
+        ParamType = ptUnknown
+      end>
+    object QryCadastroreceitaId: TIntegerField
+      FieldName = 'receitaId'
+      ReadOnly = True
+    end
+    object QryCadastrotipoReceita: TWideStringField
+      FieldName = 'tipoReceita'
+      Required = True
+      Size = 30
+    end
+    object QryCadastrodetalhamento: TWideStringField
+      FieldName = 'detalhamento'
+      Required = True
+      Size = 60
+    end
+    object QryCadastrovalorReceita: TFloatField
+      FieldName = 'valorReceita'
+    end
+    object QryCadastrofonte: TWideStringField
+      FieldName = 'fonte'
+      Required = True
+      Size = 30
+    end
+    object QryCadastrodataReceita: TDateTimeField
+      FieldName = 'dataReceita'
+    end
+    object QryCadastroformaPagamento: TWideStringField
+      FieldName = 'formaPagamento'
+      Required = True
+      Size = 50
+    end
+  end
+  inherited updCadastro: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM Receita'
+      'WHERE'
+      
+        '  ((Receita.receitaId IS NULL AND :OLD_receitaId IS NULL) OR (Re' +
+        'ceita.receitaId = :OLD_receitaId))')
+    InsertSQL.Strings = (
+      'INSERT INTO Receita'
+      
+        '  (tipoReceita, detalhamento, valorReceita, fonte, dataReceita, ' +
+        'formaPagamento)'
+      'VALUES'
+      
+        '  (:tipoReceita, :detalhamento, :valorReceita, :fonte, :dataRece' +
+        'ita, :formaPagamento)')
+    ModifySQL.Strings = (
+      'UPDATE Receita SET'
+      '  tipoReceita = :tipoReceita,'
+      '  detalhamento = :detalhamento,'
+      '  valorReceita = :valorReceita,'
+      '  fonte = :fonte,'
+      '  dataReceita = :dataReceita,'
+      '  formaPagamento = :formaPagamento'
+      'WHERE'
+      
+        '  ((Receita.receitaId IS NULL AND :OLD_receitaId IS NULL) OR (Re' +
+        'ceita.receitaId = :OLD_receitaId))')
+    Left = 386
+    Top = 56
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'tipoReceita'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'detalhamento'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'valorReceita'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'fonte'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'dataReceita'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'formaPagamento'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_receitaId'
+        ParamType = ptUnknown
+      end>
+  end
+  inherited dtsCadastro: TDataSource
+    Left = 306
+    Top = 56
+  end
+end

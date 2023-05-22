@@ -1,0 +1,192 @@
+object frmCadReceita: TfrmCadReceita
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro de Receitas'
+  ClientHeight = 793
+  ClientWidth = 791
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object RLReport1: TRLReport
+    Left = -3
+    Top = 0
+    Width = 794
+    Height = 1123
+    DataSource = dtsCadReceita
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Style = []
+    object RLBand1: TRLBand
+      Left = 38
+      Top = 38
+      Width = 718
+      Height = 52
+      BandType = btHeader
+      object RLLabel1: TRLLabel
+        Left = 3
+        Top = 4
+        Width = 232
+        Height = 32
+        Caption = 'Listagem de Bancos'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -24
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLDraw1: TRLDraw
+        Left = 0
+        Top = 36
+        Width = 718
+        Height = 16
+        Align = faBottom
+        DrawKind = dkLine
+        Pen.Width = 2
+        Transparent = False
+      end
+    end
+    object RLBand2: TRLBand
+      Left = 38
+      Top = 90
+      Width = 718
+      Height = 35
+      BandType = btColumnHeader
+      Color = 11402485
+      ParentColor = False
+      Transparent = False
+      object RLLabel2: TRLLabel
+        Left = 3
+        Top = 6
+        Width = 36
+        Height = 25
+        Caption = '#ID'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel3: TRLLabel
+        Left = 55
+        Top = 6
+        Width = 113
+        Height = 25
+        Caption = 'Tipo Receita'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel4: TRLLabel
+        Left = 185
+        Top = 6
+        Width = 130
+        Height = 25
+        Caption = 'Detalhamento'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel5: TRLLabel
+        Left = 333
+        Top = 6
+        Width = 121
+        Height = 25
+        Caption = 'Valor Receita'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel6: TRLLabel
+        Left = 470
+        Top = 6
+        Width = 56
+        Height = 25
+        Caption = 'Fonte'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel7: TRLLabel
+        Left = 542
+        Top = 6
+        Width = 169
+        Height = 25
+        Caption = 'Forma Pagamento'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -19
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Transparent = False
+      end
+    end
+    object RLBand3: TRLBand
+      Left = 38
+      Top = 125
+      Width = 718
+      Height = 44
+      object RLDBText1: TRLDBText
+        Left = 104
+        Top = 16
+        Width = 86
+        Height = 21
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        Text = ''
+      end
+    end
+  end
+  object QryCadReceita: TZQuery
+    Connection = dtmConexao.SQLConnection
+    SQL.Strings = (
+      'select receitaId,'
+      #9'   tipoReceita,'
+      #9'   detalhamento,'
+      #9'   valorReceita,'
+      #9'   fonte,'
+      #9'   formaPagamento,'
+      #9'   dataReceita'
+      'from Receita')
+    Params = <>
+    Left = 565
+    Top = 728
+  end
+  object dtsCadReceita: TDataSource
+    DataSet = QryCadReceita
+    Left = 661
+    Top = 728
+  end
+end

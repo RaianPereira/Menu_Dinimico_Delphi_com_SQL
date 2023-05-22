@@ -1,0 +1,317 @@
+inherited frmCadastroDespesas: TfrmCadastroDespesas
+  Caption = 'Cadastro de Despesas'
+  ClientHeight = 520
+  ClientWidth = 868
+  ExplicitWidth = 868
+  ExplicitHeight = 520
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    Width = 868
+    ExplicitWidth = 868
+    inherited imgBtnClose: TImage
+      Left = 845
+      ExplicitLeft = 845
+    end
+    inherited lblTitulo: TLabel
+      Width = 54
+      Caption = 'Despesas'
+      ExplicitWidth = 54
+    end
+    inherited pnlHeaderLineTop: TPanel
+      Width = 868
+      ExplicitWidth = 868
+    end
+    inherited pnlHeaderLineLeft: TPanel
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineRight: TPanel
+      Left = 866
+      ExplicitLeft = 866
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineGray: TPanel
+      Width = 819
+      ExplicitWidth = 819
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    Height = 486
+    ExplicitLeft = 0
+    ExplicitTop = 32
+    ExplicitHeight = 486
+  end
+  inherited pnlFormLineRight: TPanel
+    Left = 866
+    Height = 486
+    ExplicitLeft = 866
+    ExplicitTop = 32
+    ExplicitHeight = 486
+  end
+  inherited pnlFormLineBottom: TPanel
+    Top = 518
+    Width = 868
+    ExplicitTop = 518
+    ExplicitWidth = 868
+  end
+  inherited pnlPrincipal: TPanel
+    Width = 864
+    Height = 486
+    ExplicitLeft = -4
+    ExplicitTop = 28
+    ExplicitWidth = 864
+    ExplicitHeight = 486
+    object Label1: TLabel [0]
+      Left = 160
+      Top = 56
+      Width = 46
+      Height = 13
+      Caption = 'dispesaId'
+      FocusControl = DBEdit1
+    end
+    object Label2: TLabel [1]
+      Left = 160
+      Top = 96
+      Width = 46
+      Height = 13
+      Caption = 'tipoGasto'
+      FocusControl = DBEdit2
+    end
+    object Label3: TLabel [2]
+      Left = 160
+      Top = 136
+      Width = 66
+      Height = 13
+      Caption = 'detalhamento'
+      FocusControl = DBEdit3
+    end
+    object Label4: TLabel [3]
+      Left = 160
+      Top = 176
+      Width = 52
+      Height = 13
+      Caption = 'valorGasto'
+      FocusControl = DBEdit4
+    end
+    object Label5: TLabel [4]
+      Left = 160
+      Top = 216
+      Width = 26
+      Height = 13
+      Caption = 'fonte'
+      FocusControl = DBEdit5
+    end
+    object Label6: TLabel [5]
+      Left = 160
+      Top = 256
+      Width = 63
+      Height = 13
+      Caption = 'dataDespesa'
+      FocusControl = DBEdit6
+    end
+    object Label7: TLabel [6]
+      Left = 160
+      Top = 296
+      Width = 82
+      Height = 13
+      Caption = 'formaPagamento'
+      FocusControl = DBEdit7
+    end
+    inherited pnlPrincipalBottom: TPanel
+      Top = 444
+      Width = 864
+      ExplicitTop = 444
+      ExplicitWidth = 864
+    end
+    object DBEdit1: TDBEdit
+      Left = 160
+      Top = 72
+      Width = 134
+      Height = 21
+      DataField = 'dispesaId'
+      DataSource = dtsCadastro
+      TabOrder = 1
+    end
+    object DBEdit2: TDBEdit
+      Left = 160
+      Top = 112
+      Width = 394
+      Height = 21
+      DataField = 'tipoGasto'
+      DataSource = dtsCadastro
+      TabOrder = 2
+    end
+    object DBEdit3: TDBEdit
+      Left = 160
+      Top = 152
+      Width = 784
+      Height = 21
+      DataField = 'detalhamento'
+      DataSource = dtsCadastro
+      TabOrder = 3
+    end
+    object DBEdit4: TDBEdit
+      Left = 160
+      Top = 192
+      Width = 134
+      Height = 21
+      DataField = 'valorGasto'
+      DataSource = dtsCadastro
+      TabOrder = 4
+    end
+    object DBEdit5: TDBEdit
+      Left = 160
+      Top = 232
+      Width = 394
+      Height = 21
+      DataField = 'fonte'
+      DataSource = dtsCadastro
+      TabOrder = 5
+    end
+    object DBEdit6: TDBEdit
+      Left = 160
+      Top = 272
+      Width = 238
+      Height = 21
+      DataField = 'dataDespesa'
+      DataSource = dtsCadastro
+      TabOrder = 6
+    end
+    object DBEdit7: TDBEdit
+      Left = 160
+      Top = 315
+      Width = 654
+      Height = 21
+      DataField = 'formaPagamento'
+      DataSource = dtsCadastro
+      Enabled = False
+      TabOrder = 7
+    end
+  end
+  inherited QryCadastro: TZQuery
+    Connection = dtmConexao.SQLConnection
+    SQL.Strings = (
+      'select dispesaId,'
+      #9'   tipoGasto,'
+      #9'   detalhamento,'
+      #9'   valorGasto,'
+      #9'   fonte,'
+      #9'   dataDespesa,'
+      '                   formaPagamento'
+      'from Despesas'
+      'where dispesaId=:dispesaId')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'dispesaId'
+        ParamType = ptUnknown
+      end>
+    Left = 530
+    Top = 168
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'dispesaId'
+        ParamType = ptUnknown
+      end>
+    object QryCadastrodispesaId: TIntegerField
+      FieldName = 'dispesaId'
+      ReadOnly = True
+    end
+    object QryCadastrotipoGasto: TWideStringField
+      FieldName = 'tipoGasto'
+      Required = True
+      Size = 30
+    end
+    object QryCadastrodetalhamento: TWideStringField
+      FieldName = 'detalhamento'
+      Required = True
+      Size = 60
+    end
+    object QryCadastrovalorGasto: TFloatField
+      FieldName = 'valorGasto'
+    end
+    object QryCadastrofonte: TWideStringField
+      FieldName = 'fonte'
+      Required = True
+      Size = 30
+    end
+    object QryCadastrodataDespesa: TDateTimeField
+      FieldName = 'dataDespesa'
+    end
+    object QryCadastroformaPagamento: TWideStringField
+      FieldName = 'formaPagamento'
+      ReadOnly = True
+      Size = 50
+    end
+  end
+  inherited updCadastro: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM Despesas'
+      'WHERE'
+      
+        '  ((Despesas.dispesaId IS NULL AND :OLD_dispesaId IS NULL) OR (D' +
+        'espesas.dispesaId = :OLD_dispesaId))')
+    InsertSQL.Strings = (
+      'INSERT INTO Despesas'
+      
+        '  (tipoGasto, detalhamento, valorGasto, fonte, dataDespesa, form' +
+        'aPagamento)'
+      'VALUES'
+      
+        '  (:tipoGasto, :detalhamento, :valorGasto, :fonte, :dataDespesa,' +
+        ' :formaPagamento)')
+    ModifySQL.Strings = (
+      'UPDATE Despesas SET'
+      '  tipoGasto = :tipoGasto,'
+      '  detalhamento = :detalhamento,'
+      '  valorGasto = :valorGasto,'
+      '  fonte = :fonte,'
+      '  dataDespesa = :dataDespesa,'
+      '  formaPagamento = :formaPagamento'
+      'WHERE'
+      
+        '  ((Despesas.dispesaId IS NULL AND :OLD_dispesaId IS NULL) OR (D' +
+        'espesas.dispesaId = :OLD_dispesaId))')
+    Left = 602
+    Top = 168
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'tipoGasto'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'detalhamento'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'valorGasto'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'fonte'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'dataDespesa'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'formaPagamento'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_dispesaId'
+        ParamType = ptUnknown
+      end>
+  end
+end

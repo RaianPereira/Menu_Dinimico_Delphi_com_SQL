@@ -1,0 +1,259 @@
+inherited frmCadastroReceita: TfrmCadastroReceita
+  Caption = 'Receita'
+  ClientHeight = 615
+  ClientWidth = 1126
+  OnCreate = FormCreate
+  ExplicitWidth = 1126
+  ExplicitHeight = 615
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    Width = 1126
+    inherited imgBtnClose: TImage
+      Left = 1103
+    end
+    inherited lblTitulo: TLabel
+      Width = 114
+      Caption = 'Cadastro de Receita'
+      ExplicitWidth = 114
+    end
+    inherited pnlHeaderLineTop: TPanel
+      Width = 1126
+    end
+    inherited pnlHeaderLineLeft: TPanel
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineRight: TPanel
+      Left = 1124
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineGray: TPanel
+      Width = 1097
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    Height = 581
+    ExplicitLeft = 0
+    ExplicitTop = 32
+  end
+  inherited pnlFormLineRight: TPanel
+    Left = 1124
+    Height = 581
+    ExplicitTop = 32
+  end
+  inherited pnlFormLineBottom: TPanel
+    Top = 613
+    Width = 1126
+  end
+  inherited pnlFormPrincipal: TPanel
+    Width = 1122
+    Height = 581
+    inherited pnlFormPrincipalTop: TPanel
+      Width = 1122
+      inherited pnlLineBottom: TPanel
+        Width = 1122
+      end
+      inherited btnNovo: TBitBtn
+        Left = 772
+      end
+      inherited btnModificar: TBitBtn
+        Left = 895
+        OnClick = btnModificarClick
+      end
+      inherited btnApagar: TBitBtn
+        Left = 1017
+        OnClick = btnApagarClick
+      end
+    end
+    inherited pnlFormPrincipalBottom: TPanel
+      Top = 491
+      Width = 1122
+      Height = 90
+      ExplicitTop = 491
+      ExplicitWidth = 1122
+      ExplicitHeight = 90
+      inherited pnlLineTop: TPanel
+        Width = 1122
+      end
+      inherited DBNavigator1: TDBNavigator
+        Top = 49
+        Hints.Strings = ()
+        ExplicitTop = 49
+      end
+      inherited btnFechar: TBitBtn
+        Left = 1011
+        Top = 49
+        ExplicitLeft = 1011
+        ExplicitTop = 49
+      end
+      object pnlFormPrincipalBottomTop: TPanel
+        Left = 0
+        Top = 2
+        Width = 1122
+        Height = 43
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 3
+        DesignSize = (
+          1122
+          43)
+        object Label1: TLabel
+          Left = 868
+          Top = 10
+          Width = 102
+          Height = 21
+          Anchors = [akTop, akRight]
+          Caption = 'Receita Total:'
+          FocusControl = DBEdit1
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clLime
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object DBEdit1: TDBEdit
+          Left = 977
+          Top = 5
+          Width = 134
+          Height = 29
+          Anchors = [akTop, akRight]
+          DataField = 'Receitas'
+          DataSource = dtsReceita
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+        end
+        object Panel1: TPanel
+          Left = 58
+          Top = 39
+          Width = 1014
+          Height = 2
+          Anchors = [akLeft, akTop, akRight]
+          BevelOuter = bvNone
+          Color = clSilver
+          ParentBackground = False
+          TabOrder = 1
+        end
+      end
+    end
+    inherited grdListagem: TDBGrid
+      Width = 1122
+      Height = 441
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'receitaId'
+          Width = 76
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'tipoReceita'
+          Width = 150
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'detalhamento'
+          Width = 259
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'valorReceita'
+          Width = 129
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'formaPagamento'
+          Width = 202
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'fonte'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'dataReceita'
+          Visible = True
+        end>
+    end
+  end
+  inherited QryListagem: TZQuery
+    SQL.Strings = (
+      'select receitaId,'
+      #9#9'   tipoReceita,'
+      #9#9'   detalhamento,'
+      #9#9'   valorReceita,'
+      #9#9'   fonte,'
+      #9#9'   dataReceita,'
+      #9#9'   formaPagamento'
+      'from Receita')
+    object QryListagemreceitaId: TIntegerField
+      DisplayLabel = '#ID'
+      FieldName = 'receitaId'
+      ReadOnly = True
+    end
+    object QryListagemtipoReceita: TWideStringField
+      DisplayLabel = 'Tipo da Receita'
+      FieldName = 'tipoReceita'
+      Required = True
+      Size = 30
+    end
+    object QryListagemdetalhamento: TWideStringField
+      DisplayLabel = 'Detalhamento'
+      FieldName = 'detalhamento'
+      Required = True
+      Size = 60
+    end
+    object QryListagemvalorReceita: TFloatField
+      DisplayLabel = 'Valor da Receita'
+      FieldName = 'valorReceita'
+      DisplayFormat = #39'R$'#39'#,##0.00'
+    end
+    object QryListagemfonte: TWideStringField
+      DisplayLabel = 'Fonte'
+      FieldName = 'fonte'
+      Required = True
+      Size = 30
+    end
+    object QryListagemdataReceita: TDateTimeField
+      DisplayLabel = 'Data da Receita'
+      FieldName = 'dataReceita'
+    end
+    object QryListagemformaPagamento: TWideStringField
+      DisplayLabel = 'Forma de Pagamento'
+      FieldName = 'formaPagamento'
+      Required = True
+      Size = 50
+    end
+  end
+  object QryReceita: TZQuery
+    Connection = dtmConexao.SQLConnection
+    SQL.Strings = (
+      'select sum(valorReceita) as Receitas from Receita')
+    Params = <>
+    Left = 634
+    Top = 32
+    object QryReceitaReceitas: TFloatField
+      FieldName = 'Receitas'
+      ReadOnly = True
+      DisplayFormat = #39'R$'#39'#,##0.00'
+    end
+  end
+  object dtsReceita: TDataSource
+    DataSet = QryReceita
+    Left = 706
+    Top = 32
+  end
+end

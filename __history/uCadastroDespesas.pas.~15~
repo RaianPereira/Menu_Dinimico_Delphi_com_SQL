@@ -1,0 +1,29 @@
+unit uCadastroDespesas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uHerancaCadastro, Data.DB, ZSqlUpdate,
+  ZAbstractRODataset, ZAbstractDataset, ZDataset, System.ImageList, Vcl.ImgList,
+  Vcl.StdCtrls, Vcl.Buttons, Vcl.Imaging.pngimage, Vcl.ExtCtrls, Vcl.Mask,
+  Vcl.DBCtrls;
+
+type
+  TfrmCadastroDespesas = class(TfrmHerancaCadastro)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroDespesas: TfrmCadastroDespesas;
+
+implementation
+
+{$R *.dfm}
+
+uses uDtmConexao, uCartaoListagem;
+
+end.

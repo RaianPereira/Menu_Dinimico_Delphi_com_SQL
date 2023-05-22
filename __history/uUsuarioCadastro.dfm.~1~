@@ -1,0 +1,12 @@
+inherited frmUsuarioCadastro: TfrmUsuarioCadastro
+  Caption = 'frmUsuarioCadastro'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    inherited lblTitulo: TLabel
+      Width = 114
+      Caption = 'Cadastro de Usu'#225'rio'
+      ExplicitWidth = 114
+    end
+  end
+end

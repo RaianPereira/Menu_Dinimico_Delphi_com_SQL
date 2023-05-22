@@ -1,0 +1,119 @@
+inherited frmCadastroDasReceitas: TfrmCadastroDasReceitas
+  Caption = 'Cadastro das Receitas'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    inherited lblTitulo: TLabel
+      Width = 126
+      Caption = 'Cadastro das Receitas'
+      ExplicitWidth = 126
+    end
+    inherited pnlHeaderLineLeft: TPanel
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineRight: TPanel
+      ExplicitHeight = 30
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    ExplicitLeft = 0
+    ExplicitTop = 32
+  end
+  inherited pnlFormLineRight: TPanel
+    ExplicitTop = 32
+  end
+  inherited QryCadastro: TZQuery
+    Connection = dtmConexao.SQLConnection
+    SQL.Strings = (
+      'select receitaId,'
+      #9#9'   tipoReceita,'
+      #9#9'   detalhamento,'
+      #9#9'   valorReceita,'
+      #9#9'   fonte,'
+      #9#9'   dataReceita,'
+      #9#9'   formaPagamento'
+      'from Receita'
+      'where receitaId=:receitaId')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'receitaId'
+        ParamType = ptUnknown
+      end>
+    Left = 738
+    Top = 192
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'receitaId'
+        ParamType = ptUnknown
+      end>
+  end
+  inherited updCadastro: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM Receita'
+      'WHERE'
+      
+        '  ((Receita.receitaId IS NULL AND :OLD_receitaId IS NULL) OR (Re' +
+        'ceita.receitaId = :OLD_receitaId))')
+    InsertSQL.Strings = (
+      'INSERT INTO Receita'
+      
+        '  (tipoReceita, detalhamento, valorReceita, fonte, dataReceita, ' +
+        'formaPagamento)'
+      'VALUES'
+      
+        '  (:tipoReceita, :detalhamento, :valorReceita, :fonte, :dataRece' +
+        'ita, :formaPagamento)')
+    ModifySQL.Strings = (
+      'UPDATE Receita SET'
+      '  tipoReceita = :tipoReceita,'
+      '  detalhamento = :detalhamento,'
+      '  valorReceita = :valorReceita,'
+      '  fonte = :fonte,'
+      '  dataReceita = :dataReceita,'
+      '  formaPagamento = :formaPagamento'
+      'WHERE'
+      
+        '  ((Receita.receitaId IS NULL AND :OLD_receitaId IS NULL) OR (Re' +
+        'ceita.receitaId = :OLD_receitaId))')
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'tipoReceita'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'detalhamento'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'valorReceita'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'fonte'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'dataReceita'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'formaPagamento'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'OLD_receitaId'
+        ParamType = ptUnknown
+      end>
+  end
+end

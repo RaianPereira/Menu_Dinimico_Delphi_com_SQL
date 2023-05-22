@@ -1,0 +1,27 @@
+inherited frmCadastroDasReceitas: TfrmCadastroDasReceitas
+  Caption = 'Cadastro das Receitas'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    inherited lblTitulo: TLabel
+      Width = 126
+      Caption = 'Cadastro das Receitas'
+      ExplicitWidth = 126
+    end
+    inherited pnlHeaderLineLeft: TPanel
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineRight: TPanel
+      ExplicitHeight = 30
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    ExplicitLeft = 0
+    ExplicitTop = 32
+  end
+  inherited pnlFormLineRight: TPanel
+    ExplicitTop = 32
+  end
+end

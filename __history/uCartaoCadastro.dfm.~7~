@@ -1,0 +1,111 @@
+inherited frmCartaoCadastro: TfrmCartaoCadastro
+  Caption = 'Cart'#227'o Cadastro'
+  ClientHeight = 300
+  ClientWidth = 656
+  ExplicitWidth = 656
+  ExplicitHeight = 300
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    Width = 656
+    inherited imgBtnClose: TImage
+      Left = 633
+    end
+    inherited pnlHeaderLineTop: TPanel
+      Width = 656
+    end
+    inherited pnlHeaderLineRight: TPanel
+      Left = 654
+    end
+    inherited pnlHeaderLineGray: TPanel
+      Width = 607
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    Height = 266
+  end
+  inherited pnlFormLineRight: TPanel
+    Left = 654
+    Height = 266
+  end
+  inherited pnlFormLineBottom: TPanel
+    Top = 298
+    Width = 656
+  end
+  inherited pnlPrincipal: TPanel
+    Width = 652
+    Height = 266
+    ExplicitLeft = -4
+    ExplicitTop = 28
+    object Label1: TLabel [0]
+      Left = 20
+      Top = 40
+      Width = 19
+      Height = 13
+      Caption = '#ID'
+      FocusControl = DBEdit1
+    end
+    object Label2: TLabel [1]
+      Left = 20
+      Top = 104
+      Width = 82
+      Height = 13
+      Caption = 'Descri'#231#227'o Cart'#227'o'
+      FocusControl = DBEdit2
+    end
+    inherited pnlPrincipalBottom: TPanel
+      Top = 224
+      Width = 652
+    end
+    object DBEdit1: TDBEdit
+      Left = 20
+      Top = 56
+      Width = 134
+      Height = 21
+      DataField = 'cartaoId'
+      DataSource = dtsCadastro
+      TabOrder = 1
+    end
+    object DBEdit2: TDBEdit
+      Left = 20
+      Top = 120
+      Width = 394
+      Height = 21
+      DataField = 'descricaoCartao'
+      DataSource = dtsCadastro
+      TabOrder = 2
+    end
+  end
+  inherited QryCadastro: TZQuery
+    Connection = dtmConexao.SQLConnection
+    SQL.Strings = (
+      'select cartaoId,'
+      #9'   descricaoCartao'
+      'from Cartao'
+      'where cartaoId =:cartaoId ')
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'cartaoId'
+        ParamType = ptUnknown
+      end>
+    Left = 386
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'cartaoId'
+        ParamType = ptUnknown
+      end>
+    object QryCadastrocartaoId: TIntegerField
+      DisplayLabel = '#ID'
+      FieldName = 'cartaoId'
+      ReadOnly = True
+    end
+    object QryCadastrodescricaoCartao: TWideStringField
+      DisplayLabel = 'Descri'#231#227'o Cart'#227'o'
+      FieldName = 'descricaoCartao'
+      Required = True
+      Size = 30
+    end
+  end
+end

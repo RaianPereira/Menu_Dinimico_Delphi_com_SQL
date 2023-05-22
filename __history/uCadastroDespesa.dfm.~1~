@@ -1,0 +1,5 @@
+inherited frmHerancaCadastro1: TfrmHerancaCadastro1
+  Caption = 'frmHerancaCadastro1'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

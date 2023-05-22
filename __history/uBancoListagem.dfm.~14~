@@ -1,0 +1,107 @@
+inherited frmBancoListagem: TfrmBancoListagem
+  Caption = 'Banco'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    inherited lblTitulo: TLabel
+      Left = 8
+      Top = 8
+      Width = 105
+      Caption = 'Cadastro de Banco'
+      ExplicitLeft = 8
+      ExplicitTop = 8
+      ExplicitWidth = 105
+    end
+    inherited pnlHeaderLineLeft: TPanel
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineRight: TPanel
+      ExplicitHeight = 30
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    ExplicitLeft = 0
+    ExplicitTop = 32
+  end
+  inherited pnlFormLineRight: TPanel
+    ExplicitTop = 32
+  end
+  inherited pnlFormPrincipal: TPanel
+    inherited pnlFormPrincipalTop: TPanel
+      inherited btnModificar: TBitBtn
+        OnClick = btnModificarClick
+      end
+      inherited btnApagar: TBitBtn
+        OnClick = btnApagarClick
+      end
+    end
+    inherited pnlFormPrincipalBottom: TPanel
+      inherited DBNavigator1: TDBNavigator
+        Hints.Strings = ()
+      end
+    end
+    inherited grdListagem: TDBGrid
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'BancoId'
+          Width = 105
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'CodBanco'
+          Width = 111
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DescBanco'
+          Width = 312
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'WebSite'
+          Width = 414
+          Visible = True
+        end>
+    end
+  end
+  inherited QryListagem: TZQuery
+    SortedFields = 'CodBanco'
+    SQL.Strings = (
+      'select BancoId,'
+      '       CodBanco,'
+      '       DescBanco,'
+      '       WebSite'
+      ' from Banco'
+      '          ')
+    IndexFieldNames = 'CodBanco Asc'
+    Left = 482
+    object QryListagemBancoId: TIntegerField
+      DisplayLabel = '#ID'
+      FieldName = 'BancoId'
+      ReadOnly = True
+    end
+    object QryListagemCodBanco: TWideStringField
+      DisplayLabel = 'C'#243'd Banco'
+      FieldName = 'CodBanco'
+      Required = True
+      Size = 3
+    end
+    object QryListagemDescBanco: TWideStringField
+      DisplayLabel = 'Descri'#231#227'o do Banco'
+      FieldName = 'DescBanco'
+      Required = True
+      Size = 50
+    end
+    object QryListagemWebSite: TWideStringField
+      DisplayLabel = 'Site'
+      FieldName = 'WebSite'
+      Size = 100
+    end
+  end
+end

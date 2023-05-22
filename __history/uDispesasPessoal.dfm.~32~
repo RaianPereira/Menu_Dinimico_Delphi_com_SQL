@@ -1,0 +1,287 @@
+inherited frmDespesasPessoal: TfrmDespesasPessoal
+  Caption = 'Despesas'
+  ClientHeight = 582
+  ClientWidth = 1116
+  OnDestroy = FormDestroy
+  ExplicitWidth = 1116
+  ExplicitHeight = 582
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    Width = 1116
+    inherited imgBtnClose: TImage
+      Left = 1093
+    end
+    inherited lblTitulo: TLabel
+      Width = 54
+      Caption = 'Despesas'
+      ExplicitWidth = 54
+    end
+    inherited pnlHeaderLineTop: TPanel
+      Width = 1116
+    end
+    inherited pnlHeaderLineLeft: TPanel
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineRight: TPanel
+      Left = 1114
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineGray: TPanel
+      Width = 1087
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    Height = 548
+    ExplicitLeft = 0
+    ExplicitTop = 32
+  end
+  inherited pnlFormLineRight: TPanel
+    Left = 1114
+    Height = 548
+    ExplicitTop = 32
+  end
+  inherited pnlFormLineBottom: TPanel
+    Top = 580
+    Width = 1116
+  end
+  inherited pnlFormPrincipal: TPanel
+    Width = 1112
+    Height = 548
+    object Label2: TLabel [0]
+      Left = 880
+      Top = 440
+      Width = 33
+      Height = 13
+      Caption = 'Gastos'
+    end
+    object Label3: TLabel [1]
+      Left = 544
+      Top = 248
+      Width = 33
+      Height = 13
+      Caption = 'Gastos'
+    end
+    object Label4: TLabel [2]
+      Left = 600
+      Top = 272
+      Width = 33
+      Height = 13
+      Caption = 'Gastos'
+    end
+    object Label1: TLabel [3]
+      Left = 848
+      Top = 384
+      Width = 33
+      Height = 13
+      Caption = 'Gastos'
+    end
+    inherited pnlFormPrincipalTop: TPanel
+      Width = 1112
+      inherited pnlLineBottom: TPanel
+        Width = 1112
+      end
+      inherited btnNovo: TBitBtn
+        Left = 762
+      end
+      inherited btnModificar: TBitBtn
+        Left = 885
+        OnClick = btnModificarClick
+      end
+      inherited btnApagar: TBitBtn
+        Left = 1007
+        OnClick = btnApagarClick
+      end
+    end
+    inherited pnlFormPrincipalBottom: TPanel
+      Top = 463
+      Width = 1112
+      Height = 85
+      ExplicitTop = 449
+      ExplicitHeight = 85
+      inherited pnlLineTop: TPanel
+        Width = 1112
+      end
+      inherited DBNavigator1: TDBNavigator
+        Left = 5
+        Top = 46
+        Hints.Strings = ()
+        ExplicitLeft = 5
+        ExplicitTop = 46
+      end
+      inherited btnFechar: TBitBtn
+        Left = 1002
+        Top = 46
+        ExplicitLeft = 876
+        ExplicitTop = 46
+      end
+      object pnlFormPrincipalBottomTop: TPanel
+        Left = 0
+        Top = 2
+        Width = 1112
+        Height = 43
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 3
+        ExplicitWidth = 986
+        DesignSize = (
+          1112
+          43)
+        object Label5: TLabel
+          Left = 845
+          Top = 6
+          Width = 109
+          Height = 21
+          Anchors = [akTop, akRight]
+          Caption = 'Despesa Total:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clRed
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          ExplicitLeft = 719
+        end
+        object DBEdit1: TDBEdit
+          Left = 967
+          Top = 3
+          Width = 134
+          Height = 29
+          Anchors = [akTop, akRight]
+          DataField = 'Gastos'
+          DataSource = dtsGastos
+          Enabled = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Segoe UI'
+          Font.Style = [fsBold]
+          ParentFont = False
+          TabOrder = 0
+          ExplicitLeft = 841
+        end
+        object Panel1: TPanel
+          Left = 59
+          Top = 35
+          Width = 1001
+          Height = 2
+          Anchors = [akLeft, akTop, akRight]
+          BevelOuter = bvNone
+          Color = clSilver
+          ParentBackground = False
+          TabOrder = 1
+          ExplicitWidth = 875
+        end
+      end
+    end
+    inherited grdListagem: TDBGrid
+      Width = 1112
+      Height = 413
+      OnDblClick = btnModificarClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'dispesaId'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'tipoGasto'
+          Width = 148
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'detalhamento'
+          Width = 331
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'valorGasto'
+          Width = 111
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'fonte'
+          Width = 148
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'dataDespesa'
+          Width = 122
+          Visible = True
+        end>
+    end
+  end
+  inherited QryListagem: TZQuery
+    SortedFields = 'tipoGasto'
+    SQL.Strings = (
+      'select dispesaId,'
+      #9#9'   tipoGasto,'
+      #9#9'   detalhamento,'
+      #9#9'   valorGasto,'
+      #9#9'   fonte,'
+      #9#9'   dataDespesa,'
+      '                                  formaPagamento'
+      'from Despesas')
+    IndexFieldNames = 'tipoGasto Asc'
+    object QryListagemdispesaId: TIntegerField
+      DisplayLabel = '#ID'
+      FieldName = 'dispesaId'
+      ReadOnly = True
+    end
+    object QryListagemtipoGasto: TWideStringField
+      DisplayLabel = 'Tipo do Gasto'
+      FieldName = 'tipoGasto'
+      Required = True
+      Size = 30
+    end
+    object QryListagemdetalhamento: TWideStringField
+      DisplayLabel = 'Detalhamento'
+      FieldName = 'detalhamento'
+      Required = True
+      Size = 60
+    end
+    object QryListagemvalorGasto: TFloatField
+      DisplayLabel = 'Valor Gasto'
+      FieldName = 'valorGasto'
+      DisplayFormat = #39'R$'#39'#,##0.00'
+    end
+    object QryListagemfonte: TWideStringField
+      DisplayLabel = 'Fonte'
+      FieldName = 'fonte'
+      Required = True
+      Size = 30
+    end
+    object QryListagemdataDespesa: TDateTimeField
+      DisplayLabel = 'Data da Despesa'
+      FieldName = 'dataDespesa'
+    end
+  end
+  inherited dtsListagem: TDataSource
+    Left = 570
+  end
+  object QryGastos: TZQuery
+    Connection = dtmConexao.SQLConnection
+    SQL.Strings = (
+      'select sum(valorGasto) as Gastos from Despesas')
+    Params = <>
+    Left = 650
+    Top = 32
+    object QryGastosGastos: TFloatField
+      FieldName = 'Gastos'
+      ReadOnly = True
+      DisplayFormat = #39'-R$'#39'#,##0.00'
+    end
+  end
+  object dtsGastos: TDataSource
+    DataSet = QryGastos
+    Left = 778
+    Top = 40
+  end
+end

@@ -1,0 +1,46 @@
+unit uRelCadCartao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RLReport, Data.DB, ZAbstractRODataset,
+  ZAbstractDataset, ZDataset;
+
+type
+  TfrmRelCadCartao = class(TForm)
+    RLReport1: TRLReport;
+    Cabecalho: TRLBand;
+    RLLabel1: TRLLabel;
+    RLDraw1: TRLDraw;
+    RLBand1: TRLBand;
+    RLDraw2: TRLDraw;
+    RLSystemInfo1: TRLSystemInfo;
+    RLLabel3: TRLLabel;
+    RLSystemInfo2: TRLSystemInfo;
+    RLLabel2: TRLLabel;
+    RLSystemInfo3: TRLSystemInfo;
+    RLBand2: TRLBand;
+    RLBand3: TRLBand;
+    RLPanel1: TRLPanel;
+    RLLabel5: TRLLabel;
+    RLLabel4: TRLLabel;
+    RLDBText1: TRLDBText;
+    QryCartao: TZQuery;
+    dtsCartao: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelCadCartao: TfrmRelCadCartao;
+
+implementation
+
+{$R *.dfm}
+
+uses uDtmConexao;
+
+end.

@@ -1,0 +1,233 @@
+inherited frmHerancaListagem: TfrmHerancaListagem
+  Caption = 'Digite o Titulo da Tela Aqui'
+  ClientHeight = 568
+  ClientWidth = 990
+  OnClose = FormClose
+  ExplicitWidth = 990
+  ExplicitHeight = 568
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    Width = 990
+    ExplicitWidth = 990
+    DesignSize = (
+      990
+      32)
+    inherited imgBtnClose: TImage
+      Left = 967
+      ExplicitLeft = 967
+    end
+    inherited pnlHeaderLineTop: TPanel
+      Width = 990
+      ExplicitWidth = 990
+    end
+    inherited pnlHeaderLineLeft: TPanel
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineRight: TPanel
+      Left = 988
+      ExplicitLeft = 988
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineGray: TPanel
+      Left = 13
+      Width = 961
+      Anchors = [akLeft, akTop, akRight]
+      ExplicitLeft = 13
+      ExplicitWidth = 961
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    Height = 534
+    ExplicitLeft = 0
+    ExplicitTop = 32
+    ExplicitHeight = 534
+  end
+  inherited pnlFormLineRight: TPanel
+    Left = 988
+    Height = 534
+    ExplicitLeft = 988
+    ExplicitTop = 32
+    ExplicitHeight = 534
+  end
+  inherited pnlFormLineBottom: TPanel
+    Top = 566
+    Width = 990
+    ExplicitTop = 566
+    ExplicitWidth = 990
+  end
+  object pnlFormPrincipal: TPanel [4]
+    Left = 2
+    Top = 32
+    Width = 986
+    Height = 534
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 4
+    object pnlFormPrincipalTop: TPanel
+      Left = 0
+      Top = 0
+      Width = 986
+      Height = 50
+      Align = alTop
+      BevelOuter = bvNone
+      TabOrder = 0
+      DesignSize = (
+        986
+        50)
+      object lblPesquisarPor: TLabel
+        Left = 7
+        Top = 3
+        Width = 77
+        Height = 13
+        Caption = 'Pesquisar Por'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object pnlLineBottom: TPanel
+        Left = 0
+        Top = 48
+        Width = 986
+        Height = 2
+        Align = alBottom
+        BevelOuter = bvNone
+        Color = clBackground
+        ParentBackground = False
+        TabOrder = 0
+      end
+      object mskPesquisar: TMaskEdit
+        Left = 6
+        Top = 19
+        Width = 330
+        Height = 21
+        TabOrder = 1
+        Text = ''
+        TextHint = 'Digite Sua Pesquisa...'
+        OnChange = mskPesquisarChange
+      end
+      object btnNovo: TBitBtn
+        Left = 636
+        Top = 8
+        Width = 100
+        Height = 36
+        Anchors = [akTop, akRight]
+        ImageIndex = 3
+        Images = imhButtons
+        TabOrder = 2
+        OnClick = btnNovoClick
+        OnMouseEnter = btnNovoMouseEnter
+        OnMouseLeave = btnNovoMouseLeave
+      end
+      object btnModificar: TBitBtn
+        Left = 759
+        Top = 8
+        Width = 100
+        Height = 36
+        Anchors = [akTop, akRight]
+        ImageIndex = 5
+        Images = imhButtons
+        TabOrder = 3
+        OnMouseEnter = btnModificarMouseEnter
+        OnMouseLeave = btnModificarMouseLeave
+      end
+      object btnApagar: TBitBtn
+        Left = 881
+        Top = 8
+        Width = 100
+        Height = 36
+        Anchors = [akTop, akRight]
+        ImageIndex = 10
+        Images = imhButtons
+        TabOrder = 4
+        OnMouseEnter = btnApagarMouseEnter
+        OnMouseLeave = btnApagarMouseLeave
+      end
+    end
+    object pnlFormPrincipalBottom: TPanel
+      Left = 0
+      Top = 492
+      Width = 986
+      Height = 42
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 1
+      DesignSize = (
+        986
+        42)
+      object pnlLineTop: TPanel
+        Left = 0
+        Top = 0
+        Width = 986
+        Height = 2
+        Align = alTop
+        BevelOuter = bvNone
+        Color = clBackground
+        ParentBackground = False
+        TabOrder = 0
+      end
+      object DBNavigator1: TDBNavigator
+        Left = 4
+        Top = 4
+        Width = 220
+        Height = 36
+        DataSource = dtsListagem
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
+        TabOrder = 1
+      end
+      object btnFechar: TBitBtn
+        Left = 880
+        Top = 4
+        Width = 100
+        Height = 36
+        Anchors = [akTop, akRight]
+        ImageIndex = 2
+        Images = imhButtons
+        TabOrder = 2
+        OnClick = btnFecharClick
+        OnMouseEnter = btnFecharMouseEnter
+        OnMouseLeave = btnFecharMouseLeave
+      end
+    end
+    object grdListagem: TDBGrid
+      Left = 0
+      Top = 50
+      Width = 986
+      Height = 442
+      Align = alClient
+      BorderStyle = bsNone
+      Ctl3D = True
+      DataSource = dtsListagem
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      ParentCtl3D = False
+      TabOrder = 2
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      OnKeyDown = grdListagemKeyDown
+      OnTitleClick = grdListagemTitleClick
+    end
+  end
+  inherited imhButtons: TImageList
+    Left = 384
+    Top = 32
+  end
+  object QryListagem: TZQuery
+    Connection = dtmConexao.SQLConnection
+    Params = <>
+    Left = 490
+    Top = 32
+  end
+  object dtsListagem: TDataSource
+    DataSet = QryListagem
+    Left = 554
+    Top = 32
+  end
+end

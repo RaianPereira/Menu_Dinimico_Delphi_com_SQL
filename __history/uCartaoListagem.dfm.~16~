@@ -1,0 +1,97 @@
+inherited frmCartaoListagem: TfrmCartaoListagem
+  Caption = 'Cadastro de Cart'#227'o'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlHeader: TPanel
+    inherited lblTitulo: TLabel
+      Width = 109
+      Caption = 'Cadastro de Cart'#227'o'
+      ExplicitWidth = 109
+    end
+    inherited pnlHeaderLineLeft: TPanel
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      ExplicitHeight = 30
+    end
+    inherited pnlHeaderLineRight: TPanel
+      ExplicitHeight = 30
+    end
+  end
+  inherited pnlFormLineLeft: TPanel
+    ExplicitLeft = 0
+    ExplicitTop = 32
+  end
+  inherited pnlFormLineRight: TPanel
+    ExplicitTop = 32
+  end
+  inherited pnlFormPrincipal: TPanel
+    inherited pnlFormPrincipalTop: TPanel
+      inherited btnModificar: TBitBtn
+        OnClick = btnModificarClick
+      end
+      inherited btnApagar: TBitBtn
+        OnClick = btnApagarClick
+      end
+    end
+    inherited pnlFormPrincipalBottom: TPanel
+      inherited DBNavigator1: TDBNavigator
+        Hints.Strings = ()
+      end
+    end
+    inherited grdListagem: TDBGrid
+      Height = 399
+      OnDblClick = btnModificarClick
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'cartaoId'
+          Width = 152
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'descricaoCartao'
+          Width = 730
+          Visible = True
+        end>
+    end
+    object Panel1: TPanel
+      Left = 0
+      Top = 449
+      Width = 986
+      Height = 43
+      Align = alBottom
+      BevelOuter = bvNone
+      TabOrder = 3
+      ExplicitTop = 450
+      object BitBtn1: TBitBtn
+        Left = 878
+        Top = 4
+        Width = 97
+        Height = 36
+        Caption = '&Imprimir/Vizualizar'
+        TabOrder = 0
+        OnClick = BitBtn1Click
+      end
+    end
+  end
+  inherited QryListagem: TZQuery
+    SortedFields = 'descricaoCartao'
+    SQL.Strings = (
+      'select cartaoId,'
+      #9'   descricaoCartao'
+      #9'from Cartao')
+    IndexFieldNames = 'descricaoCartao Asc'
+    object QryListagemcartaoId: TIntegerField
+      DisplayLabel = '#ID'
+      FieldName = 'cartaoId'
+      ReadOnly = True
+    end
+    object QryListagemdescricaoCartao: TWideStringField
+      DisplayLabel = 'Descri'#231#227'o'
+      FieldName = 'descricaoCartao'
+      Required = True
+      Size = 30
+    end
+  end
+end
